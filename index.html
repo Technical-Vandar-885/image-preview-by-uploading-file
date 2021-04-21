@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        input[type=file] {
+            display: none;
+        }
+
+        label {
+            margin: 15px 25px;
+            position: absolute;
+            height: 45px;
+            width: 205px;
+            background-color: black;
+            cursor: pointer;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+
+        label span {
+            margin: 10px;
+        }
+
+        img#output {
+
+            margin-top: 70px;
+            height: auto;
+            width: auto;
+            border: 1px solid black;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Image Upload and Preview</title>
+</head>
+
+<body>
+    <div class="container">
+        <span id="image">
+            <input type="file" accept="image/*" name="file" id="file" onchange="loadfile(event)">
+            <label for="file"><span class="material-icons">add_photo_alternate</span>Upload Image</label>
+        </span>
+       <img alt="" id="output">
+    </div>
+</body>
+<script>
+   function loadfile(event)
+   {
+       var img=document.getElementById('output');
+       img.src=URL.createObjectURL(event.target.files[0]);
+   }
+</script>
+
+</html>
